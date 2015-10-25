@@ -9,6 +9,9 @@
 	</div>
 
 	<a href = '{{url_for('newMenuItem', restaurant_id = restaurant.id)}}'>Create New Item</a>
+	<hr/>
+	<a href = '{{url_for('showRestaurants')}}'>Back to Restaurants</a>
+	<hr/>
 
 	<div class = 'flash'>
 		{% with messages = get_flashed_messages() %}
