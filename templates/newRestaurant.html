@@ -11,14 +11,14 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-1 padding-top">
-			<form action="{{url_for('newRestaurant')}}" method = "post">
+			<form action="{{url_for('newRestaurant')}}" method = "POST" id = 'abc'>
 				<div class="form-group">
 				<label for="name">Name:</label>
 				<input type ="text" class="form-control" maxlength="100" name="name">
 				<div class="padding-bottom"></div>
 				</div>
 			</form>
-			<button type="submit" class="btn btn-default" id="submit" type="submit">
+			<button type="submit" class="btn btn-default" id="submit" type="submit" form = 'abc'>
 			<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Create</button>
 			<a href = "{{url_for('showRestaurants')}}">
 				<button class="btn btn-default delete">

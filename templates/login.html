@@ -9,18 +9,37 @@
 <script src="//apis.google.com/js/platform.js?onload=start" async defer> </script>
 
 <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
-
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 
 </head>
 
 
-<body>  
-
-
+<body> 
+      <div class="col-md-6">
+        <a href="{{url_for('showRestaurants')}}">
+          <span class="glyphicon glyphicon-home" aria-hidden="true" style = "color:grey"><span style = "color:grey">&nbsp Show All Restaurants</span></span>
+        </a>
+      </div>
+      <div class="row top-menu">
+          <div class="col-md-10"></div>
+          <div class="col-md-2 text-right">
+                </div>
+        </div>
+        <div class="row divider blue">
+          <div class="col-md-12"></div>
+        </div>
+        <div class="row banner main">
+          <div class="col-md-1"></div>
+          <div class="col-md-11 padding-none">
+            <h1>Login with Google+ or Facebook</h1>
+          </div>
+        </div>
 <!-- GOOGLE PLUS SIGN IN BUTTON-->
 
           
-          <div id="signInButton">
+          <div id="signInButton" class = 'btn btn-default'>
           <span class="g-signin"
             data-scope="openid email"
             data-clientid="348842421262-m6fvqbvg9m4ruhlmujm47pdjmrc57cu8.apps.googleusercontent.com"
@@ -31,7 +50,13 @@
             data-approvalprompt="force">
           </span>
         </div>
-
+        <span>
+        <button class = 'btn btn-default'>
+            <fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
+            <a href='javascript:sendTokenToServer()'>Login with Facebook</a>
+            </fb:login-button>
+        </button>
+        </span>
 
 
 <div id="result"></div>
@@ -66,6 +91,62 @@ function signInCallback(authResult) {
   }); } }
 </script>
 <!--END GOOGLE PLUS SIGN IN BUTTON -->
+
+<!--FACEBOOK SIGN IN -->
+<script>
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '432019630334652',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use version 2.2
+  });
+  };
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function sendTokenToServer() {
+    var access_token = FB.getAuthResponse()['accessToken'];
+    console.log(access_token)
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+     $.ajax({
+      type: 'POST',
+      url: '/fbconnect?state={{STATE}}',
+      processData: false,
+      data: access_token,
+      contentType: 'application/octet-stream; charset=utf-8',
+      success: function(result) {
+        // Handle or verify the server response if necessary.
+        if (result) {
+          $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+         setTimeout(function() {
+          window.location.href = "/restaurant";
+         }, 4000);
+          
+      } else {
+        $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+         }
+      }
+      
+  });
+    });
+  }
+</script>
+
+
+<!--END FACEBOOK SIGN IN -->
+
+
 
   </body>
 
