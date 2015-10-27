@@ -7,11 +7,11 @@ In this project, I wrote sql scheme, built an web server using flask framwork of
 - Skills: Google+ API, Facebook SDK, Restfull API SQLalchemy API, Sqlite Database, Python, Javascript, JQuery, Ajax, HTML, CSS, Json
 - Features : 1.Using Flask ( a light Python web framework).<br/>
 -            2.Using OAuth 2.0 to Access Google APIs and Facebook API.<br/>
--            You can login using your google or facebook account.<br/>
+    -            You can login using your google or facebook account.<br/>
     -            Only the owner can manage his own restaurants.<br/>
     -            Using RESRfull APIs, like Post and Get.<br/>
 -            3.Providing JSON APIs, which you can exploit to get the information you want.<br/>
--               
+
 1. Run database_setup.py to create restaurantmenu.db
 2. Run project.py to connect the sqlite database and webserver
 3. Go to http://localhost:5000/ and you will see the page as below
