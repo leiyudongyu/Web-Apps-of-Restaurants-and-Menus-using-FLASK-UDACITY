@@ -5,12 +5,12 @@ This is one of the web projects in Full Stack Web Developer Nanodegree in Udacit
 In this project, I wrote sql scheme, built an web server using flask framwork of python and using SQLalchemy API to connect the sqlite database. I made a Restfull web application which can provide HTTP related CRUD methods handling a list of restaurant and its menus. JSON APIs are also provided for data query. Then I implement third pary OAuth authentication for restaurants and menus management. 
 
 - Skills: Google+ API, Facebook SDK, Restfull API SQLalchemy API, Sqlite Database, Python, Javascript, JQuery, Ajax, HTML, CSS, Json
-- Features : 
+#Features: 
 1.Using Flask ( a light Python web framework).<br/>
 2.Using OAuth 2.0 to Access Google APIs and Facebook API.<br/>
-    You can login using your google or facebook account.<br/>
-    - Only the owner can manage his own restaurants.<br/>
-    - Using RESRfull APIs, like Post and Get.<br/>
+    -You can login using your google or facebook account.<br/>
+    -Only the owner can manage his own restaurants.<br/>
+4. Using RESRfull APIs, like Post and Get.<br/>
 3.Providing JSON APIs, which you can exploit to get the information you want.<br/>
 
 1. Run database_setup.py to create restaurantmenu.db
