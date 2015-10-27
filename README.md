@@ -9,8 +9,8 @@ In this project, I wrote sql scheme, built an web server using flask framwork of
 Features: <br/>
     1.Using Flask ( a light Python web framework).<br/>
     2.Using OAuth 2.0 to Access Google APIs and Facebook API.<br/>
--    a.You can login using your google or facebook account.<br/>
--    b.Only the owner can manage his own restaurants.<br/>
+## a.You can login using your google or facebook account.<br/>
+## b.Only the owner can manage his own restaurants.<br/>
     3.Using RESRfull APIs, like Post and Get.<br/>
     4.Providing JSON APIs, which you can exploit to get the information you want.<br/>
 
